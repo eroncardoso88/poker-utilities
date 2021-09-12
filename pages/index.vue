@@ -1,28 +1,23 @@
 <template>
   <div>
-    <h1>Hello world!</h1>
-    <h4 v-if="mariana === true">Mariana will study VueJs with Nuxt</h4>
+    <Game :gameprops="game" />
   </div>
 </template>
 
 <script>
+import Game from "../components/Game";
 export default {
+  components: {
+    Game,
+  },
   data() {
     return {
-      loading: false,
-      mariana: false,
+      game: {
+        screenRecordingGame: true,
+        firstMatch: true,
+        gameId: 1,
+      },
     };
-  },
-  computed: {},
-  methods: {
-    toggleMariana() {
-      setTimeout(() => {
-        this.mariana = !this.mariana;
-      }, 2000);
-    },
-  },
-  created: function () {
-    this.toggleMariana();
   },
 };
 </script>
